@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-20 15:33:29
  * @LastEditors: nevin
- * @LastEditTime: 2022-01-21 15:18:32
+ * @LastEditTime: 2022-01-21 17:06:12
  * @Description: 文件描述
  */
 import { Body, Controller, Delete, Get, Post, Put, UseGuards, Headers } from '@nestjs/common';
@@ -12,7 +12,6 @@ import { errHttpBack } from 'src/filters/http-exception.back-code';
 import { AppHttpException } from 'src/filters/http-exception.filter';
 import { AuthService } from '../auth/auth.service';
 import { TokenInfo } from '../auth/interfaces/auth.interfaces';
-import { encryptPassword } from '../auth/util';
 import { ParamsValidationPipe } from '../validation.pipe';
 import { User } from './class/user.class';
 import { CreateUsersDto, LoginUserDto } from './dto/user.dto';
@@ -67,36 +66,33 @@ export class UserController {
     @ApiBearerAuth()
     @UseGuards(AuthGuard('jwt'))
     @Get('mine')
-    async getMyUserInfo(
+    async getMineInfo(
         @Headers() headers,
-    ) {
+    ): Promise<User> {
         const tokenInfo: TokenInfo = await this.authService.decryptToken(
             headers.authorization,
         );
-        console.log('============ tokenInfo', tokenInfo);
 
-        return "ok";
-        // return await this.userService.getUserInfoById("111");
+        return await this.userService.getUserInfoById(tokenInfo.user_id);
     }
 
 
-    @Delete('/:user_id')
-    async del() {
-        return await this.userService.create({});
-    }
+    // @Delete('/:user_id')
+    // async del() {
+    // }
 
     @Put('/:user_id')
     async updata() {
-        return await this.userService.create({});
+        // return await this.userService.create();
     }
 
     @Get()
     async getUserList() {
-        return await this.userService.create({});
+        // return await this.userService.create({});
     }
 
     @Get('/:user_id')
     async getUserInfo() {
-        return await this.userService.getUserInfoById('1111');
+        // return await this.userService.getUserInfoById('1111');
     }
 }
