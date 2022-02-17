@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-19 16:13:27
  * @LastEditors: nevin
- * @LastEditTime: 2022-01-21 15:42:28
+ * @LastEditTime: 2022-02-17 16:12:25
  * @Description: 主模块
  */
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
@@ -13,8 +13,6 @@ import { DatabaseModule } from './database/database.module';
 import { MailModule } from './mail/mail.module';
 import { ServerModule } from './server/server.module';
 import * as Joi from '@hapi/joi';
-import mongoConfig from '../config/mongo.config';
-import mailConfig from '../config/mail.config';
 import serverConfig from '../config/server.config';
 import { SignMiddleware } from './middleware/sign.middleware';
 import { LogMiddleware } from './middleware/log.middleware';
@@ -25,7 +23,7 @@ import { LogMiddleware } from './middleware/log.middleware';
       envFilePath: '.env', // 配置文件路径，也可以配置为数组如['/config/.env1','.env']。
       ignoreEnvFile: false, // 取消忽略配置文件，为true则仅读取操作系统环境变量，常用于生产环境
       isGlobal: true, // 作用于全局
-      load: [serverConfig, mongoConfig, mailConfig], // 加载自定义配置项
+      load: [serverConfig], // 加载自定义配置项
       // 配置文件.env校验
       validationSchema: Joi.object({
         PORT: Joi.string().default('7000'), // 端口
