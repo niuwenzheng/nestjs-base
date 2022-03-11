@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-19 16:13:27
  * @LastEditors: nevin
- * @LastEditTime: 2022-02-17 16:12:25
+ * @LastEditTime: 2022-03-11 17:29:12
  * @Description: 主模块
  */
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
@@ -16,6 +16,7 @@ import * as Joi from '@hapi/joi';
 import serverConfig from '../config/server.config';
 import { SignMiddleware } from './middleware/sign.middleware';
 import { LogMiddleware } from './middleware/log.middleware';
+import { TokenMiddleware } from './middleware/token.middleware';
 
 @Module({
   imports: [
@@ -54,6 +55,9 @@ export class AppModule implements NestModule {
       ) // 多个过滤多个参数
       .forRoutes('*')
 
+      .apply(TokenMiddleware)
+      .forRoutes('*')
+      
       .apply(LogMiddleware)
       // .forRoutes('users');
       .forRoutes('*');
