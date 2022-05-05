@@ -5,11 +5,24 @@
  * @LastEditTime: 2022-01-21 15:47:40
  * @Description: 描述文件
 -->
-
+# 介绍
+🎖🎖🎖 基于 Nest + Ts 二次封装的【Nest-base】。对Nest.js进行了整理，风格化，二次封装，分层，动态配置，JWT，MySQL，MongoDB，参数校验，swagger文档配置，让您避免繁琐的项目基础配置，更快的上手开发
 ## Running the app
+### 安装依赖包
 ```bash
-$ yarn
+$ yarn or npm i
 ```
+### 配置`.env` 环境变量
+```
+NODE_ENV = development
+PORT = 7000
+# 邮件配置
+MAIL = <你的邮箱>
+MAIL_AUTH_CODE = <邮箱秘钥>
+# MongoDB配置
+MONGO_URI = mongodb://username:password@1.1.1.3:27017/dbname
+```
+### 启动命令
 ```bash
 # development
 $ npm run start
@@ -17,7 +30,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+### Test命令
 ```bash
 # unit tests
 $ npm run test
@@ -25,7 +38,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-# 介绍
+
 ## 业务
 1. 用户的注册，注销
 2. 授权登陆其他服务
@@ -33,14 +46,7 @@ $ npm run test:cov
 
 # 构建过程
 
-## .env 环境变量
-NODE_ENV = development
-PORT = 7000
 
-MAIL = xxxxx@qq.com
-MAIL_AUTH_CODE = xxxxx
-
-MONGO_URI = mongodb://username:password@1.1.1.3:27017/dbname
 ## config
 1. 根目录/config目录：统一的配置文件
 ```bash
@@ -288,7 +294,6 @@ export interface ErrorResponse {
    - 验证密码
    - 生成token
    - 解析token
-  
-## 用户授权登陆（未完成）
-## 服务间认证（未完成）
 
+## 🙏🙏🙏 点个Star
+如果您觉得这个项目还不错, 可以在 Github 上面帮我点个star, 支持一下作者 ☜(ﾟヮﾟ☜)
