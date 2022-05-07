@@ -5,42 +5,37 @@
  * @LastEditTime: 2022-01-20 15:29:04
  * @Description: 文件描述
  */
-const moment = require('moment')
-const _ = require('lodash')
+const moment = require('moment');
+const _ = require('lodash');
 
 export class OtherUtil {
-    constructor(parameters) {
+  constructor(parameters) {}
 
-    }
+  static sleep(ms: number): Promise<string> {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        resolve('time out');
+      }, ms);
+    });
+  }
 
-    static sleep(ms: number): Promise<string> {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                resolve('time out');
-            }, ms);
-        })
+  static objKeySort(obj: object) {
+    //先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
+    const newkey = Object.keys(obj).sort();
+    const newObj = {}; //创建一个新的对象，用于存放排好序的键值对
+    //遍历newkey数组
+    for (let i = 0; i < newkey.length; i++) {
+      newObj[newkey[i]] = obj[newkey[i]]; //向新创建的对象中按照排好的顺序依次增加键值对
     }
-
-    static objKeySort(obj: object) {
-        //先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
-        const newkey = Object.keys(obj).sort();
-        const newObj = {};//创建一个新的对象，用于存放排好序的键值对
-        //遍历newkey数组
-        for (let i = 0; i < newkey.length; i++) {
-            newObj[newkey[i]] = obj[newkey[i]];//向新创建的对象中按照排好的顺序依次增加键值对
-        }
-        //返回排好序的新对象
-        return newObj;
-    }
+    //返回排好序的新对象
+    return newObj;
+  }
 }
 
-const format = require('string-format')
-format.extend(String.prototype, {})
-
+const format = require('string-format');
+format.extend(String.prototype, {});
 
 let utils = {};
-
-
 
 //排序的函数
 // utils.

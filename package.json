@@ -1,8 +1,8 @@
 {
   "name": "nestjs-base",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "version": "0.0.2",
+  "description": "基于 Nest + Ts 二次封装的【Nest-base】。对Nest.js进行了整理，风格化，二次封装，分层，动态配置，JWT，MySQL，MongoDB，参数校验，swagger文档配置，让您避免繁琐的项目基础配置，更快的上手开发",
+  "author": "niuwenzheng",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -33,6 +33,7 @@
     "@nestjs/swagger": "^5.1.5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "hbs": "^4.2.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mongoose": "^6.1.7",

@@ -15,21 +15,23 @@ import { UserSchema, UserSchemaName } from './schema/user.schema';
 
 @Global()
 @Module({
-    imports: [
-        ConfigModule.forRoot({
-            load: [mongoConfig], // 加载配置
-        }),
-        MongooseModule.forRootAsync({
-            imports: [ConfigModule], // 数据库配置项依赖于ConfigModule，需在此引入
-            inject: [ConfigService],
-            useFactory: (configService: ConfigService) => configService.get('MONGO_CONFIG'),
-        }),
-        MongooseModule.forFeature([ // 挂载实体
-            { name: IdSchemaName, schema: IdSchema },
-            { name: UserSchemaName, schema: UserSchema }
-        ]),
-    ],
-    providers: [IdService],
-    exports: [IdService],
+  imports: [
+    ConfigModule.forRoot({
+      load: [mongoConfig], // 加载配置
+    }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule], // 数据库配置项依赖于ConfigModule，需在此引入
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) =>
+        configService.get('MONGO_CONFIG'),
+    }),
+    MongooseModule.forFeature([
+      // 挂载实体
+      { name: IdSchemaName, schema: IdSchema },
+      { name: UserSchemaName, schema: UserSchema },
+    ]),
+  ],
+  providers: [IdService],
+  exports: [IdService],
 })
-export class DatabaseModule { }
+export class DatabaseModule {}

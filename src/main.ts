@@ -9,12 +9,16 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import { createSwagger } from './_swagger';
-import { Logger } from '@nestjs/common';
 import { TransformInterceptor } from './interceptor/transform.interceptor';
-import { AuthExceptionFilter, HttpExceptionFilter } from './filters/http-exception.filter';
-
+import {
+  AuthExceptionFilter,
+  HttpExceptionFilter,
+} from './filters/http-exception.filter';
+import { getIpAddress } from './util';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   const config = app.get(ConfigService);
   const { PORT, ENABLE_SWAGGER } = config.get('SERVER_CONFIG');
@@ -29,7 +33,19 @@ async function bootstrap() {
   app.useGlobalFilters(new AuthExceptionFilter(), new HttpExceptionFilter());
   // ------------- 全局注册错误的过滤器 END-------------
 
+  app.useStaticAssets('public');
+  app.setBaseViewsDir('views');
+  app.setViewEngine('hbs');
+
   await app.listen(PORT);
-  Logger.log(`服务开启-端口：${PORT}`)
+  console.log(
+    '\x1B[36m%s\x1B[0m',
+    `App runing Localhost at：http://localhost:${PORT}`,
+  );
+  console.log(
+    '\x1B[36m%s\x1B[0m',
+    `App runing Network at：http://${getIpAddress()}:${PORT}`,
+  );
 }
+
 bootstrap();

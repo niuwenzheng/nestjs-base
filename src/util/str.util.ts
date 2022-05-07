@@ -6,11 +6,9 @@
  * @Description: 文件描述
  */
 export class StrUtil {
-    constructor(parameters) {
-
-    }
-    static getAllBig(str) {
-        const xx = 88;
-        return str + "----"
-    }
+  constructor(parameters) {}
+  static getAllBig(str) {
+    const xx = 88;
+    return str + '----';
+  }
 }

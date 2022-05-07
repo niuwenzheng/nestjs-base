@@ -5,7 +5,12 @@
  * @LastEditTime: 2022-03-11 17:29:12
  * @Description: 主模块
  */
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -32,15 +37,17 @@ import { TokenMiddleware } from './middleware/token.middleware';
           .valid('development', 'production', 'test', 'provision')
           .default('development'),
 
-        MONGO_URI: Joi.string().default('mongodb://username:password@xxx.xx.xxx.xx:27017/dbname'), // mongodb链接
+        MONGO_URI: Joi.string().default(
+          'mongodb://username:password@xxx.xx.xxx.xx:27017/dbname',
+        ), // mongodb链接
 
         MAIL: Joi.string().default('xxxxxx@qq.com'), // 邮箱
-        MAIL_AUTH_CODE: Joi.string().default('xxxxxx') // 邮箱授权码
-      })
+        MAIL_AUTH_CODE: Joi.string().default('xxxxxx'), // 邮箱授权码
+      }),
     }),
     DatabaseModule,
     MailModule,
-    ServerModule
+    ServerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
@@ -57,7 +64,7 @@ export class AppModule implements NestModule {
 
       .apply(TokenMiddleware)
       .forRoutes('*')
-      
+
       .apply(LogMiddleware)
       // .forRoutes('users');
       .forRoutes('*');
