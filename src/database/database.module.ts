@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-19 16:38:59
  * @LastEditors: nevin
- * @LastEditTime: 2022-02-17 16:12:12
+ * @LastEditTime: 2022-09-15 18:25:43
  * @Description: 数据库模块
  */
 import { Global, Module } from '@nestjs/common';
