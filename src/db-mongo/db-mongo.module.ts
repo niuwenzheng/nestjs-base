@@ -1,7 +1,7 @@
 /*
  * @Author: nevin
  * @Date: 2022-09-23 18:00:51
- * @LastEditTime: 2022-10-26 23:33:04
+ * @LastEditTime: 2022-11-17 21:49:09
  * @LastEditors: nevin
  * @Description:
  */
@@ -9,7 +9,7 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import mongoConfig from 'config/mongo.config';
-import { IdSchema, IdSchemaName } from './id.schema';
+import { Id, IdSchema } from './id.schema';
 import { IdService } from './id.service';
 
 @Global()
@@ -26,7 +26,7 @@ import { IdService } from './id.service';
     }),
     MongooseModule.forFeature([
       // 挂载实体
-      { name: IdSchemaName, schema: IdSchema },
+      { name: Id.name, schema: IdSchema },
     ]),
   ],
   providers: [IdService],

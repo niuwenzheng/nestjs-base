@@ -1,27 +1,40 @@
 /*
  * @Author: nevin
- * @Date: 2021-12-24 14:32:46
+ * @Date: 2022-11-16 22:04:18
+ * @LastEditTime: 2022-11-17 21:33:14
  * @LastEditors: nevin
- * @LastEditTime: 2022-10-26 22:55:23
- * @Description: 玩家 Gamer gamer
+ * @Description: 玩家
  */
-import * as mongoose from 'mongoose';
-import { Gamer } from 'src/server/gamer/class/gamer.class';
-export interface GamerModel extends Gamer, Document {}
-export const GamerSchemaName = 'Gamer';
-export const GamerSchema = new mongoose.Schema(
-  {
-    gamer_id: Number,
-    gamer_name: String,
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+import { GamerStatus } from 'src/server/gamer/enum/game.enum';
 
-    mail: String,
-    password: String,
-    salt: String, // 密码盐
+export type GamerDocument = Gamer & Document;
+@Schema({ collection: 't_gamer', versionKey: false })
+export class Gamer {
+  @Prop({ required: true })
+  gamer_id: number;
 
-    status: Number,
+  @Prop({ required: true })
+  gamer_name: string;
 
-    create_time: Number,
-    update_time: Number,
-  },
-  { collection: 't_gamer', versionKey: false },
-);
+  @Prop()
+  mail: string;
+
+  @Prop()
+  password: string;
+
+  @Prop()
+  salt: string;
+
+  @Prop()
+  status: GamerStatus;
+
+  @Prop()
+  create_time: number;
+
+  @Prop()
+  update_time: number;
+}
+
+export const GamerSchema = SchemaFactory.createForClass(Gamer);

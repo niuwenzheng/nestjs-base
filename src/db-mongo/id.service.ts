@@ -2,30 +2,19 @@
  * @Author: nevin
  * @Date: 2021-12-24 13:49:52
  * @LastEditors: nevin
- * @LastEditTime: 2022-09-23 13:55:35
+ * @LastEditTime: 2022-11-17 21:46:27
  * @Description: 自增ID
  */
-import { Model, Document } from 'mongoose';
+import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Injectable } from '@nestjs/common';
-import { IdSchemaName } from './id.schema';
+import { Id, IdDocument } from './id.schema';
 
-// export interface Users extends Document {
-//   readonly user_id: string;
-//   readonly user_name: string;
-//   readonly age: number;
-// }
-interface Id extends Document {
-  readonly id_value: number;
-  readonly id_name: string;
-}
-interface CreateIDDto {
-  readonly id_value: number;
-  readonly id_name: string;
-}
 @Injectable()
 export class IdService {
-  constructor(@InjectModel(IdSchemaName) private readonly idModel: Model<Id>) {}
+  constructor(
+    @InjectModel(Id.name) private readonly idModel: Model<IdDocument>,
+  ) {}
 
   /**
    * @description: 创建id
