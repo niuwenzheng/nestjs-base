@@ -1,7 +1,7 @@
 /*
  * @Author: nevin
  * @Date: 2022-09-23 14:03:39
- * @LastEditTime: 2023-07-25 10:01:50
+ * @LastEditTime: 2023-07-25 12:16:07
  * @LastEditors: nevin
  * @Description: 项目全局模块
  */
@@ -48,7 +48,7 @@ import { CacheModule } from './cache/cache.module';
     DbMongoModule,
     LogModule, // 全部业务模块
     MailModule,
-    CacheModule,
+    // CacheModule, // 缓存数据库模块
   ],
   controllers: [AppController],
   providers: [AppService],
