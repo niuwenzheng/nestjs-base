@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-19 16:13:27
  * @LastEditors: nevin
- * @LastEditTime: 2022-10-24 21:47:39
+ * @LastEditTime: 2023-07-25 09:41:30
  * @Description: 项目说明
 -->
 
@@ -411,7 +411,7 @@ app.useGlobalFilters(new AuthExceptionFilter(), new HttpExceptionFilter());
    }
    ```
 
-## jwt 验证（未完成）
+## jwt 验证
 
 1. 安装包
 
@@ -477,5 +477,5 @@ app.useGlobalFilters(new AuthExceptionFilter(), new HttpExceptionFilter());
    - 解析 token
 
 ## 🙏🙏🙏 点个 Star
-
+https://github.com/niuwenzheng/nestjs-base
 如果您觉得这个项目还不错, 可以在 Github 上面帮我点个 star, 支持一下作者 ☜(ﾟヮﾟ ☜)

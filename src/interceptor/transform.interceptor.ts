@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-20 15:56:08
  * @LastEditors: nevin
- * @LastEditTime: 2022-10-22 00:27:13
+ * @LastEditTime: 2023-07-25 09:45:55
  * @Description: 全局拦截器 慢日志打印
  */
 import {
@@ -59,11 +59,13 @@ export class TransformInterceptor<T>
         if (ruqTime >= 50) {
           Logger.verbose({
             level: 'verbose',
-            message: reqUrl,
+            message: `${reqUrl}::${ruqTime}ms`,
             mate: ruqTime,
           });
         }
         // --------- 慢日志打印警告 END ---------
+
+        if (data !== 0 && !data) return data;
 
         // 不进行封装的返回
         if (request.is_org) return data as any;
