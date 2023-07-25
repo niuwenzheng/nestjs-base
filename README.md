@@ -2,13 +2,19 @@
  * @Author: nevin
  * @Date: 2022-01-19 16:13:27
  * @LastEditors: nevin
- * @LastEditTime: 2023-07-25 09:41:30
+ * @LastEditTime: 2023-07-25 10:43:02
  * @Description: 项目说明
 -->
 
 # 介绍
 
 🎖🎖🎖 基于 Nest + Ts 二次封装的【Nest-base】。对 Nest.js 进行了整理，风格化，二次封装，分层，动态配置，JWT，MySQL，MongoDB，参数校验，swagger 文档配置，让您避免繁琐的项目基础配置，更快的上手开发
+
+# 分支说明
+
+master: 使用 mysql 做的 auth 模块的验证
+master-mysql: 使用 mysql
+master-mongo: 使用 mongodb
 
 ## Running the app
 
@@ -477,5 +483,6 @@ app.useGlobalFilters(new AuthExceptionFilter(), new HttpExceptionFilter());
    - 解析 token
 
 ## 🙏🙏🙏 点个 Star
+
 https://github.com/niuwenzheng/nestjs-base
 如果您觉得这个项目还不错, 可以在 Github 上面帮我点个 star, 支持一下作者 ☜(ﾟヮﾟ ☜)
