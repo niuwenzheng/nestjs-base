@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-19 16:13:27
  * @LastEditors: nevin
- * @LastEditTime: 2023-07-25 10:43:02
+ * @LastEditTime: 2023-07-25 14:04:34
  * @Description: 项目说明
 -->
 
@@ -12,9 +12,9 @@
 
 # 分支说明
 
-master: 使用 mysql 做的 auth 模块的验证
-master-mysql: 使用 mysql
-master-mongo: 使用 mongodb
+1. master: 使用 mysql 做的 auth 模块的验证, 同时使用mongodb做的业务
+2. master-mysql: 使用 mysql
+3. master-mongo: 使用 mongodb
 
 ## Running the app
 
