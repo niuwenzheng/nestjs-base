@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-21 09:45:49
  * @LastEditors: nevin
- * @LastEditTime: 2022-10-29 21:14:18
+ * @LastEditTime: 2023-07-25 10:07:17
  * @Description: JWT 的验证策略
  */
 import { ExtractJwt, Strategy } from 'passport-jwt';

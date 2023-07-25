@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-02-23 09:21:48
  * @LastEditors: nevin
- * @LastEditTime: 2022-10-19 23:39:37
+ * @LastEditTime: 2023-07-25 10:05:48
  * @Description: 日志模块
  */
 import { Module } from '@nestjs/common';

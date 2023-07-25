@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-01-21 09:50:47
  * @LastEditors: nevin
- * @LastEditTime: 2022-10-24 23:08:18
+ * @LastEditTime: 2023-07-25 10:07:34
  * @Description: 认证模块-加密工具
  */
 import * as crypto from 'crypto';

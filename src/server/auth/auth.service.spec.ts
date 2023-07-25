@@ -2,7 +2,7 @@
  * @Author: nevin
  * @Date: 2022-02-17 13:57:15
  * @LastEditors: nevin
- * @LastEditTime: 2022-10-24 23:07:46
+ * @LastEditTime: 2023-07-25 10:06:39
  * @Description: 认证测试
  */
 import { JwtModule, JwtService } from '@nestjs/jwt';
