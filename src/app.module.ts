@@ -46,7 +46,7 @@ import { CacheModule } from './cache/cache.module';
     ServerModule,
     DbMysqlModule,
     DbMongoModule,
-    LogModule, // 全部业务模块
+    LogModule,
     MailModule,
     // CacheModule, // 缓存数据库模块
   ],
